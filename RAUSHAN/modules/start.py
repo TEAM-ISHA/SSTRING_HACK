@@ -14,6 +14,8 @@ from RAUSHAN.Helpers.data import (
 from RAUSHAN.Helpers.mongo import (
     add_served_user,
     remove_served_user,
+    add_served_chat,
+    remove_served_chat,
 )
 
 
@@ -83,4 +85,33 @@ async def back_callback(client, query: CallbackQuery):
         reply_markup=PM_BUTTON
     )
     await query.answer()
-    
+
+
+@app.on_message(filters.new_chat_members)
+async def on_bot_added(client, message: Message):
+    bot_id = (await client.get_me()).id
+
+    if bot_id not in [user.id for user in message.new_chat_members]:
+        return
+
+    chat_id = message.chat.id
+
+    try:
+        await add_served_chat(chat_id)
+    except:
+        pass
+
+
+@app.on_message(filters.left_chat_member)
+async def on_bot_removed(client, message: Message):
+    bot_id = (await client.get_me()).id
+
+    if message.left_chat_member.id != bot_id:
+        return
+
+    chat_id = message.chat.id
+
+    try:
+        await remove_served_chat(chat_id)
+    except:
+        pass
