@@ -1,26 +1,22 @@
 import sys
-
 from config import Config
 from motor.motor_asyncio import AsyncIOMotorClient
 
-# Mongo Database
-try:
-    mongodb = AsyncIOMotorClient(Config.MONGO_URL).Daxx
-except:
-    print("Please Change Your MongoDB")
-    sys.exit()
 
+try:
+    mongodb = AsyncIOMotorClient(Config.MONGO_URL).Alpha
+except Exception as e:
+    print("Please change your MongoDB URL")
+    sys.exit()
 
 chatsdb = mongodb.tgchatsdb
 usersdb = mongodb.tgusersdb
 
 
-# All Served Users
+
 async def is_served_user(user_id: int) -> bool:
     user = await usersdb.find_one({"user_id": user_id})
-    if not user:
-        return False
-    return True
+    return bool(user)
 
 
 async def get_served_users() -> list:
@@ -31,13 +27,15 @@ async def get_served_users() -> list:
 
 
 async def add_served_user(user_id: int):
-    is_served = await is_served_user(user_id)
-    if is_served:
+    if await is_served_user(user_id):
         return
     return await usersdb.insert_one({"user_id": user_id})
 
 
-# All Served Chats
+async def remove_served_user(user_id: int):
+    return await usersdb.delete_one({"user_id": user_id})
+
+
 async def get_served_chats() -> list:
     chats_list = []
     async for chat in chatsdb.find({"chat_id": {"$lt": 0}}):
@@ -47,15 +45,14 @@ async def get_served_chats() -> list:
 
 async def is_served_chat(chat_id: int) -> bool:
     chat = await chatsdb.find_one({"chat_id": chat_id})
-    if not chat:
-        return False
-    return True
+    return bool(chat)
 
 
 async def add_served_chat(chat_id: int):
-    is_served = await is_served_chat(chat_id)
-    if is_served:
+    if await is_served_chat(chat_id):
         return
     return await chatsdb.insert_one({"chat_id": chat_id})
 
 
+async def remove_served_chat(chat_id: int):
+    return await chatsdb.delete_one({"chat_id": chat_id})
