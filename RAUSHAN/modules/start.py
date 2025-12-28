@@ -18,73 +18,41 @@ from RAUSHAN.Helpers.mongo import (
     remove_served_chat,
 )
 
-import logging
-import traceback
-
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s - %(levelname)s - %(name)s - %(message)s",
-)
-
-LOGGER = logging.getLogger("RAUSHAN-BOT")
-
-
-async def tg_log(client, text: str, level="INFO"):
-    try:
-        await client.send_message(
-            Config.LOGGER_GROUP_ID,
-            f"**[{level}]**\n{text}"
-        )
-    except Exception as e:
-        LOGGER.error(f"TG LOGGER FAILED: {e}")
-        traceback.print_exc()
-
 
 @app.on_message(filters.command("start") & filters.private)
 async def start_cmd(client, message: Message):
-    LOGGER.info("START command triggered")
-
     user = message.from_user
+    user_id = user.id
+    username = f"@{user.username}" if user.username else "N/A"
+    mention = user.mention
     bot = (await client.get_me()).mention
 
     try:
-        await add_served_user(user.id)
-        LOGGER.info(f"User added to DB: {user.id}")
+        await add_served_user(user_id)
 
-        try:
-            await message.reply_photo(
-                photo=START_PIC,
-                caption=PM_TEXT.format(user.mention, bot),
-                reply_markup=PM_BUTTON,
-            )
-            LOGGER.info("Start photo sent")
-
-        except Exception as img_err:
-            LOGGER.warning(f"Photo failed: {img_err}")
-            await message.reply_text(
-                PM_TEXT.format(user.mention, bot),
-                reply_markup=PM_BUTTON,
-            )
-
-        await tg_log(
-            client,
-            f"✅ **START SUCCESS**\n"
-            f"👤 User: {user.mention}\n"
-            f"🆔 ID: `{user.id}`",
-            level="SUCCESS"
+        await message.reply_photo(
+            photo=START_PIC,
+            caption=PM_TEXT.format(mention, bot),
+            reply_markup=PM_BUTTON,
         )
 
-    except Exception as e:
-        LOGGER.error("START CMD FAILED", exc_info=True)
+    except (UserIsBlocked, InputUserDeactivated):
+        await remove_served_user(user_id)
+        return
+    except Exception:
+        return
 
-        await tg_log(
-            client,
-            f"❌ **START ERROR**\n"
-            f"👤 User ID: `{user.id}`\n"
-            f"🧨 Error: `{e}`",
-            level="ERROR"
-        )
+    log_msg = (
+        "**✦ ηєᴡ ᴜsєʀ sᴛᴧʀᴛєᴅ ᴛʜє ʙσᴛ**\n\n"
+        f"**➻ ᴜsєʀ :** [{user.first_name}](tg://user?id={user_id})\n"
+        f"**➻ ᴜsєʀɴᴀᴍᴇ :** {username}\n"
+        f"**➻ ɪᴅ :** `{user_id}`"
+    )
 
+    try:
+        await client.send_message(Config.LOGGER_GROUP_ID, log_msg)
+    except:
+        pass
 
 
 @app.on_message(filters.command("hack") & filters.private)
@@ -96,8 +64,8 @@ async def hack_cmd(client, message: Message):
         )
     except (UserIsBlocked, InputUserDeactivated):
         await remove_served_user(message.from_user.id)
-    except Exception as e:
-        print("HACK CMD ERROR:", e)
+    except Exception:
+        pass
 
 
 @app.on_callback_query(filters.regex("^hack_btn$"))
@@ -108,38 +76,35 @@ async def hack_callback(client, query: CallbackQuery):
             reply_markup=ALPHA_MODS,
         )
         await query.answer()
-    except Exception as e:
-        print("HACK CALLBACK ERROR:", e)
+    except Exception:
+        pass
 
 
 @app.on_callback_query(filters.regex("^back_btn$"))
 async def back_callback(client, query: CallbackQuery):
-    user = query.from_user
-    bot = (await client.get_me()).mention
-
     try:
         await query.message.edit_text(
-            PM_TEXT.format(user.mention, bot),
+            PM_TEXT,
             reply_markup=PM_BUTTON,
         )
         await query.answer()
-    except Exception as e:
-        print("BACK CALLBACK ERROR:", e)
-
+    except Exception:
+        pass
 
 
 @app.on_message(filters.new_chat_members)
 async def on_bot_added(client, message: Message):
     bot_id = (await client.get_me()).id
 
-    if bot_id not in [u.id for u in message.new_chat_members]:
+    if bot_id not in [user.id for user in message.new_chat_members]:
         return
 
-    try:
-        await add_served_chat(message.chat.id)
-    except Exception as e:
-        print("ADD CHAT ERROR:", e)
+    chat_id = message.chat.id
 
+    try:
+        await add_served_chat(chat_id)
+    except:
+        pass
 
 
 @app.on_message(filters.left_chat_member)
@@ -149,7 +114,9 @@ async def on_bot_removed(client, message: Message):
     if message.left_chat_member.id != bot_id:
         return
 
+    chat_id = message.chat.id
+
     try:
-        await remove_served_chat(message.chat.id)
-    except Exception as e:
-        print("REMOVE CHAT ERROR:", e)
+        await remove_served_chat(chat_id)
+    except:
+        pass
