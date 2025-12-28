@@ -1,6 +1,6 @@
 from pyrogram import filters
 from RAUSHAN import app , START_PIC
-from RAUSHAN.Helpers.data import PM_TEXT, PM_BUTTON, HACK_MODS, HACK_TEXT
+from RAUSHAN.Helpers.data import PM_TEXT, PM_BUTTON, HACK_MODS, HACK_TEXT, ALPHA_MODS
 from RAUSHAN.Helpers.mongo import add_served_user
 from pyrogram.types import CallbackQuery
 
@@ -24,8 +24,18 @@ async def _hack(_, message):
 
 
 @app.on_callback_query(filters.regex("hack_btn"))
-async def heck_callback(bot : app, query : CallbackQuery):
-    await query.message.delete()
-    await query.message.reply_text(HACK_TEXT,
-              reply_markup = HACK_MODS)
+async def heck_callback(client, query: CallbackQuery):
+    await query.message.edit_text(
+        HACK_TEXT,
+        reply_markup=ALPHA_MODS
+    )
+    await query.answer()
 
+
+@app.on_callback_query(filters.regex("back_btn"))
+async def back_callback(client, query: CallbackQuery):
+    await query.message.edit_text(
+        PM_TEXT,
+        reply_markup=PM_BUTTON
+    )
+    await query.answer()
