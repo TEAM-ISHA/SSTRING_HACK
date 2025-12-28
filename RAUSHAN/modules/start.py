@@ -83,8 +83,12 @@ async def hack_callback(client, query: CallbackQuery):
 @app.on_callback_query(filters.regex("^back_btn$"))
 async def back_callback(client, query: CallbackQuery):
     try:
+        user = query.from_user
+        mention = user.mention
+        bot = (await client.get_me()).mention
+
         await query.message.edit_text(
-            PM_TEXT,
+            PM_TEXT.format(mention, bot),
             reply_markup=PM_BUTTON,
         )
         await query.answer()
