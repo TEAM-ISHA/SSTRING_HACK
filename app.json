@@ -11,18 +11,22 @@
     "env": {
         "API_ID": {
             "description": "your API_ID",
+            "value": "24168862",
             "required": true
         },
         "API_HASH": {
             "description": "your API_HASH",
+            "value": "916a9424dd1e58ab7955001ccc0172b3",
             "required": true
         },
         "TOKEN": {
             "description": "your bot token",
+            "value": "",
             "required": true
         },
         "MONGO_URL": {
             "description": "your MongoDB connection url",
+            "value": "",
             "required": true
         }
     },
