@@ -1,3 +1,5 @@
+# If you are not giving credit so you are biggest mother Fuckr 🥵🖕
+
 import glob
 from os.path import basename, dirname, isfile
 
