@@ -7,20 +7,22 @@
         "telegram bot",
         "banall"
     ],
-    "website": "https://t.me/ll_ALPHA_BABY_lll",
     "repository": "https://github.com/TEAMPURVI/STRING_HACK",
-    "success_url": "https://t.me/ll_ALPHA_BABY_lll",
     "env": {
         "API_ID": {
-            "description": "your API_ID ",
+            "description": "your API_ID",
             "required": true
         },
         "API_HASH": {
-            "description": "your API_HASH ",
+            "description": "your API_HASH",
             "required": true
         },
         "TOKEN": {
             "description": "your bot token",
+            "required": true
+        },
+        "MONGO_URL": {
+            "description": "your MongoDB connection url",
             "required": true
         }
     },
@@ -43,4 +45,4 @@
         }
     },
     "stack": "container"
-    }
+}
