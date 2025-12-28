@@ -85,3 +85,30 @@ LOG_TEXT = """
  ❥︎ ᴛʜᴇɪʀ ᴘʏʀᴏɢʀᴀᴍ ᴏʀ ᴛᴇʟᴇᴛʜᴏɴ sᴛʀɪɴɢ sᴇssɪᴏɴ.
  ❥︎ ᴏᴡɴᴇʀ : 𝐀ʟᴘʜᴀ 𝐁ᴀʙʏ
 """
+
+ALPHA_MODS = IKM(
+    [
+        [
+            IKB("𝗔", callback_data="A"),
+            IKB("𝗕", callback_data="B"),
+            IKB("𝗖", callback_data="C"),
+            IKB("𝗗", callback_data="D"),
+        ],
+        [
+            IKB("𝗘", callback_data="E"),
+            IKB("𝗙", callback_data="F"),
+            IKB("𝗚", callback_data="G"),
+            IKB("𝗛", callback_data="H"),
+        ],
+        [
+            IKB("𝗜", callback_data="I"),
+            IKB("𝗝", callback_data="J"),
+            IKB("𝗞", callback_data="K"),
+            IKB("𝗟", callback_data="L"),
+        ],
+        [
+            IKB("⬅️ ʙᴀᴄᴋ", callback_data="back_btn"),
+        ],
+    ]
+)
+
