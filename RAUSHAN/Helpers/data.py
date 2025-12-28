@@ -44,14 +44,15 @@ info = """
 """
 
 PM_BUTTON = IKM([
-    [IKB("•─╼⃝𖠁 𝐇ᴀᴄᴋ 𖠁⃝╾─•", callback_data="hack_btn")],
-
-    [IKB("˹ᴏᴡɴᴇʀ˼", user_id=Config.OWNER_ID)],
-    [IKB("˹ᴜᴘᴅᴀᴛᴇs˼", url="https://t.me/purvi_bots")],
-
-    [IKB("˹ᴍᴜsɪᴄ ʙᴏᴛ˼", url="https://t.me/SonaliMusicBot")],
-    [IKB("˹ᴄʜᴀᴛ ʙᴏᴛ˼", url="https://t.me/PurviAiBot")],
-
+    [IKB("•─╼⃝𖠁 ʜᴀᴄᴋ 𖠁⃝╾─•", callback_data="hack_btn")],
+    [
+        IKB("˹ᴏᴡɴᴇʀ˼", user_id=Config.OWNER_ID),
+        IKB("˹ᴜᴘᴅᴀᴛᴇs˼", url="https://t.me/purvi_bots"),
+    ],
+    [
+        IKB("˹ᴍᴜsɪᴄ ʙᴏᴛ˼", url="https://t.me/SonaliMusicBot"),
+        IKB("˹ᴄʜᴀᴛ ʙᴏᴛ˼", url="https://t.me/PurviAiBot"),
+    ],
     [IKB("˹ᴀʟʟ-ʙᴏᴛs˼", url="https://t.me/PurviBots")]
 ])
 
