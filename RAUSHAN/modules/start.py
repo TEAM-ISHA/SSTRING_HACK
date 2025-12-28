@@ -18,49 +18,72 @@ from RAUSHAN.Helpers.mongo import (
     remove_served_chat,
 )
 
+import logging
+import traceback
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s - %(levelname)s - %(name)s - %(message)s",
+)
+
+LOGGER = logging.getLogger("RAUSHAN-BOT")
+
+
+async def tg_log(client, text: str, level="INFO"):
+    try:
+        await client.send_message(
+            Config.LOGGER_GROUP_ID,
+            f"**[{level}]**\n{text}"
+        )
+    except Exception as e:
+        LOGGER.error(f"TG LOGGER FAILED: {e}")
+        traceback.print_exc()
+
 
 @app.on_message(filters.command("start") & filters.private)
 async def start_cmd(client, message: Message):
+    LOGGER.info("START command triggered")
+
     user = message.from_user
     bot = (await client.get_me()).mention
 
     try:
         await add_served_user(user.id)
+        LOGGER.info(f"User added to DB: {user.id}")
 
-        
         try:
             await message.reply_photo(
                 photo=START_PIC,
                 caption=PM_TEXT.format(user.mention, bot),
                 reply_markup=PM_BUTTON,
             )
-        except Exception as e:
-        
-            print("START PHOTO ERROR:", e)
+            LOGGER.info("Start photo sent")
+
+        except Exception as img_err:
+            LOGGER.warning(f"Photo failed: {img_err}")
             await message.reply_text(
                 PM_TEXT.format(user.mention, bot),
                 reply_markup=PM_BUTTON,
             )
 
-    except (UserIsBlocked, InputUserDeactivated):
-        await remove_served_user(user.id)
-        return
+        await tg_log(
+            client,
+            f"✅ **START SUCCESS**\n"
+            f"👤 User: {user.mention}\n"
+            f"🆔 ID: `{user.id}`",
+            level="SUCCESS"
+        )
+
     except Exception as e:
-        print("START CMD ERROR:", e)
-        return
+        LOGGER.error("START CMD FAILED", exc_info=True)
 
-    
-    log_msg = (
-        "**✦ ηєᴡ ᴜsєʀ sᴛᴀʀᴛєᴅ ᴛʜє ʙσᴛ**\n\n"
-        f"**➻ ᴜsєʀ :** [{user.first_name}](tg://user?id={user.id})\n"
-        f"**➻ ᴜsєʀɴᴀᴍᴇ :** @{user.username if user.username else 'N/A'}\n"
-        f"**➻ ɪᴅ :** `{user.id}`"
-    )
-
-    try:
-        await client.send_message(Config.LOGGER_GROUP_ID, log_msg)
-    except:
-        pass
+        await tg_log(
+            client,
+            f"❌ **START ERROR**\n"
+            f"👤 User ID: `{user.id}`\n"
+            f"🧨 Error: `{e}`",
+            level="ERROR"
+        )
 
 
 
