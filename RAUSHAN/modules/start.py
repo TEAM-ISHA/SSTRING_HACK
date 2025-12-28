@@ -23,7 +23,7 @@ from RAUSHAN.Helpers.mongo import (
 async def start_cmd(client, message: Message):
     user = message.from_user
     user_id = user.id
-    username = f"@{user.username}" if user.username else "N/A"
+    username = f"@{user.username}" if user.username else "ɴᴏᴛ sᴇᴛ"
     mention = user.mention
     bot = (await client.get_me()).mention
 
