@@ -8,7 +8,6 @@ from rich.table import Table
 from RAUSHAN.Helpers.data import LOG_TEXT
 from pyromod import listen 
 
-#getting variables
 API_ID = Config.API_ID
 API_HASH = Config.API_HASH
 TOKEN = Config.TOKEN
@@ -19,15 +18,13 @@ START_PIC = Config.START_PIC
 if not START_PIC:
     START_PIC = "https://telegra.ph/file/c53d9a7df9dbaa5f4db05.jpg"
 
-#rich
 LOG = Console()
 
-#logger
+
 logging.basicConfig(level=logging.INFO)
 
-#client
 app = Client(
-    "SupremeStark",
+    "alphababy",
     api_id = API_ID,
     api_hash = API_HASH,
     bot_token = TOKEN )
@@ -39,8 +36,8 @@ async def RAUSHAN():
     header = Table(show_header=True, header_style="bold green")
     header.add_column(LOG_TEXT)
     LOG.print(header)
-    LOG.print(f"[bold cyan]𝐓𝐄𝐀𝐌 𝐏𝐔𝐑𝐕𝐈 𝐁𝐎𝐓𝐒")
-    LOG.print("[bold yellow]𝐘𝐨𝐮𝐫 𝐁𝐨𝐭 𝐒𝐭𝐚𝐫𝐭.............")
+    LOG.print(f"[bold cyan]❖ ᴘᴏᴡᴇʀᴇᴅ ʙʏ :- @PurviBots ✅")
+    LOG.print("[bold yellow]❖ ʏᴏᴜʀ ʙᴏᴛ sᴛᴀʀᴛᴇᴅ....🤞 ɪғ ʏᴏᴜ ᴀʀᴇ ɴᴏᴛ ɢɪᴠᴇ ᴍᴇ ᴄʀᴇᴅɪᴛ sᴏ ʏᴏᴜ ᴀʀᴇ ʙɪɢɢᴇsᴛ ᴍᴏᴛʜᴇʀ ғᴜᴍᴄᴋᴇʀ.🥵")
     await app.start()    
     
 
