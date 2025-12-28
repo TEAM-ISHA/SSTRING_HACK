@@ -22,7 +22,7 @@ async def broadcast_message(client, message):
     if IS_BROADCASTING:
         return await message.reply_text("🚫 **ʙʀᴏᴀᴅᴄᴀsᴛ ᴀʟʀᴇᴀᴅʏ ʀᴜɴɴɪɴɢ**")
 
-    start_time = time.time()  
+    start_time = time.time()
 
     flags = message.text.lower()
     do_pin = "-pin" in flags
@@ -31,7 +31,7 @@ async def broadcast_message(client, message):
         payload = message.reply_to_message
         use_forward = True
         y = message.chat.id
-        x = payload.message_id
+        x = payload.id  # ✅ FIXED HERE
     else:
         if len(message.command) < 2:
             return await message.reply_text(
@@ -96,7 +96,7 @@ async def broadcast_message(client, message):
 
     IS_BROADCASTING = False
 
-    time_taken = int(time.time() - start_time)  
+    time_taken = int(time.time() - start_time)
 
     await message.reply_text(
         f"✅ **ʙʀᴏᴀᴅᴄᴀsᴛ ᴄᴏᴍᴘʟᴇᴛᴇᴅ**\n\n"
