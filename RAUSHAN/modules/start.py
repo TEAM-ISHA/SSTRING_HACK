@@ -1,5 +1,5 @@
 from pyrogram import filters
-from pyrogram.types import CallbackQuery
+from pyrogram.types import CallbackQuery, Message
 from pyrogram.errors import UserIsBlocked, InputUserDeactivated
 
 from config import LOGGER_GROUP_ID
@@ -20,7 +20,7 @@ from RAUSHAN.Helpers.mongo import (
 
 
 @app.on_message(filters.command("start") & filters.private)
-async def start_cmd(client, message):
+async def start_cmd(client, message: Message):
     user = message.from_user
     user_id = user.id
     username = f"@{user.username}" if user.username else "N/A"
@@ -28,7 +28,6 @@ async def start_cmd(client, message):
     bot = (await client.get_me()).mention
 
     try:
-    
         await add_served_user(user_id)
 
         await message.reply_photo(
@@ -57,7 +56,7 @@ async def start_cmd(client, message):
 
 
 @app.on_message(filters.command("hack") & filters.private)
-async def hack_cmd(client, message):
+async def hack_cmd(client, message: Message):
     try:
         await message.reply_text(
             HACK_TEXT,
@@ -69,22 +68,28 @@ async def hack_cmd(client, message):
         pass
 
 
-@app.on_callback_query(filters.regex("hack_btn"))
-async def heck_callback(client, query: CallbackQuery):
-    await query.message.edit_text(
-        HACK_TEXT,
-        reply_markup=ALPHA_MODS
-    )
-    await query.answer()
+@app.on_callback_query(filters.regex("^hack_btn$"))
+async def hack_callback(client, query: CallbackQuery):
+    try:
+        await query.message.edit_text(
+            HACK_TEXT,
+            reply_markup=ALPHA_MODS,
+        )
+        await query.answer()
+    except Exception:
+        pass
 
 
-@app.on_callback_query(filters.regex("back_btn"))
+@app.on_callback_query(filters.regex("^back_btn$"))
 async def back_callback(client, query: CallbackQuery):
-    await query.message.edit_text(
-        PM_TEXT,
-        reply_markup=PM_BUTTON
-    )
-    await query.answer()
+    try:
+        await query.message.edit_text(
+            PM_TEXT,
+            reply_markup=PM_BUTTON,
+        )
+        await query.answer()
+    except Exception:
+        pass
 
 
 @app.on_message(filters.new_chat_members)
