@@ -16,7 +16,7 @@ START_PIC = Config.START_PIC
 
 
 if not START_PIC:
-    START_PIC = "https://telegra.ph/file/c53d9a7df9dbaa5f4db05.jpg"
+    START_PIC = "https://files.catbox.moe/7crm69.jpg"
 
 LOG = Console()
 
@@ -37,7 +37,7 @@ async def RAUSHAN():
     header.add_column(LOG_TEXT)
     LOG.print(header)
     LOG.print(f"[bold cyan]❖ ᴘᴏᴡᴇʀᴇᴅ ʙʏ :- @PurviBots ✅")
-    LOG.print("[bold yellow]❖ ʏᴏᴜʀ ʙᴏᴛ sᴛᴀʀᴛᴇᴅ....🤞 ɪғ ʏᴏᴜ ᴀʀᴇ ɴᴏᴛ ɢɪᴠᴇ ᴍᴇ ᴄʀᴇᴅɪᴛ sᴏ ʏᴏᴜ ᴀʀᴇ ʙɪɢɢᴇsᴛ ᴍᴏᴛʜᴇʀ ғᴜᴍᴄᴋᴇʀ.🥵")
+    LOG.print("[bold yellow]❖ ʏᴏᴜʀ ʙᴏᴛ sᴛᴀʀᴛᴇᴅ....🤞 ɪғ ʏᴏᴜ ᴀʀᴇ ɴᴏᴛ ɢɪᴠᴇ ᴍᴇ ᴄʀᴇᴅɪᴛ sᴏ ʏᴏᴜ ᴀʀᴇ ʙɪɢɢᴇsᴛ ᴍᴏᴛʜᴇʀ ғ*ᴄᴋᴇʀ.🥵")
     await app.start()    
     
 
