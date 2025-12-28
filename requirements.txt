@@ -1,4 +1,4 @@
-motor==3.0.0
+motor
 pyrofork
 pyromod==1.5
 TgCrypto
