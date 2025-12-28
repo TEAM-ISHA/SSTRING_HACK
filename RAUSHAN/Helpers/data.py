@@ -1,5 +1,5 @@
 from pyrogram.types import InlineKeyboardButton as IKB, InlineKeyboardMarkup as IKM 
-
+from config import Config
 
 PM_TEXT = """
 **✦ » ʜᴇʏ {},**
@@ -45,10 +45,14 @@ info = """
 
 PM_BUTTON = IKM([
     [IKB("•─╼⃝𖠁 𝐇ᴀᴄᴋ 𖠁⃝╾─•", callback_data="hack_btn")],
-[
-    IKB("🔸 ❍ᴡɴᴇʀ🔸", url="http://t.me/ll_ALPHA_BABY_lll"),
-    IKB("▫️ 𝗨ᴘᴅᴀᴛᴇs ▫️", url="http://t.me/purvi_support")
-]
+
+    [IKB("˹ᴏᴡɴᴇʀ˼", user_id=Config.OWNER_ID)],
+    [IKB("˹ᴜᴘᴅᴀᴛᴇs˼", url="https://t.me/purvi_bots")],
+
+    [IKB("˹ᴍᴜsɪᴄ ʙᴏᴛ˼", url="https://t.me/SonaliMusicBot")],
+    [IKB("˹ᴄʜᴀᴛ ʙᴏᴛ˼", url="https://t.me/PurviAiBot")],
+
+    [IKB("˹ᴀʟʟ-ʙᴏᴛs˼", url="https://t.me/PurviBots")]
 ])
 
 
