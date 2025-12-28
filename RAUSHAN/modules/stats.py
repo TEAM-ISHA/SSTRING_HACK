@@ -48,4 +48,4 @@ async def stats_command(client, message):
         f"📡 **ᴘɪɴɢ :** `{ping_ms} ᴍꜱ`"
     )
 
-    await message.reply_text(text)
+    await message.reply_text(text, disable_web_page_preview=True)
