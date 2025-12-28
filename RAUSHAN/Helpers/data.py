@@ -2,12 +2,12 @@ from pyrogram.types import InlineKeyboardButton as IKB, InlineKeyboardMarkup as 
 from config import Config
 
 PM_TEXT = """
-**✦ ʜᴇʏ {},**
-**⏤͟͟͞͞★ ɪ ᴀᴍ {} — ᴀ sᴇssɪᴏɴ ɪɴғᴏ ʙᴏᴛ ғᴏʀ ᴛɢ ɪᴅ ᴅᴇᴛᴀɪʟs ᴠɪᴀ sᴛʀɪɴɢ sᴇssɪᴏɴ.**
+**✦ » ʜᴇʏ {},**
+**✦ » ɪ ᴀᴍ {} - ᴀ ʙᴏᴛ ғᴏʀ ᴛɢ ɪᴅ ᴅᴇᴛᴀɪʟs ᴠɪᴀ sᴛʀɪɴɢ sᴇssɪᴏɴ.**
 
-**⊚ sᴜᴘᴘᴏʀᴛs ᴘʏʀᴏɢʀᴀᴍ & ᴛᴇʟᴇᴛʜᴏɴ sᴛʀɪɴɢ sᴇssɪᴏɴs. ᴄʟɪᴄᴋ ᴏɴ ʜᴀᴄᴋ ᴛᴏ sᴇᴇ ғᴇᴀᴛᴜʀᴇs.**
+**✦ » sᴜᴘᴘᴏʀᴛs ᴘʏʀᴏɢʀᴀᴍ & ᴛᴇʟᴇᴛʜᴏɴ sᴛʀɪɴɢ sᴇssɪᴏɴs. ᴄʟɪᴄᴋ ᴏɴ ʜᴀᴄᴋ ᴛᴏ sᴇᴇ ғᴇᴀᴛᴜʀᴇs.**
 
-**❖ ᴘᴏᴡᴇʀᴇᴅ ʙʏ » [ᴀʟᴘʜᴀ 🥂](http://t.me/TheSigmaCoder)**
+**✦ » ᴘᴏᴡᴇʀᴇᴅ ʙʏ » [⎯᪵፝֟፝֟⎯꯭𓆩꯭ ꯭𝐀 ꯭ʟ ꯭ᴘ ꯭ʜ꯭ ᴧ꯭⎯꯭꯭‌꯭🥂꯭༎꯭ 𓆪](http://t.me/TheSigmaCoder)**
 """
 
 HACK_TEXT = """
