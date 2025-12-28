@@ -1,7 +1,6 @@
-# 𝗦𝗘𝗦𝗦𝗜𝗢𝗡 𝗜𝗡𝗙𝗢 𝗕𝗢𝗧
-<h1 align="center"
+
  
-### 🚩🚩 जय बजरंग बली 🚩🚩
+### 𝗦𝗘𝗦𝗦𝗜𝗢𝗡 𝗜𝗡𝗙𝗢 𝗕𝗢𝗧 🙌
 <h1 align="center"
   
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
@@ -33,5 +32,5 @@
 <a href="(https://t.me/https://t.me/PURVI_UPDATES"><img src="https://img.shields.io/badge/-Support%20Channel-blue.svg?style=for-the-badge&logo=Telegram"></a>
 </p>
 
-
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
 
