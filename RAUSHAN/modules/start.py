@@ -2,7 +2,7 @@ from pyrogram import filters
 from pyrogram.types import CallbackQuery, Message
 from pyrogram.errors import UserIsBlocked, InputUserDeactivated
 
-from config import LOGGER_GROUP_ID
+from config import Config
 from RAUSHAN import app, START_PIC
 from RAUSHAN.Helpers.data import (
     PM_TEXT,
@@ -50,7 +50,7 @@ async def start_cmd(client, message: Message):
     )
 
     try:
-        await client.send_message(LOGGER_GROUP_ID, log_msg)
+        await client.send_message(Config.LOGGER_GROUP_ID, log_msg)
     except:
         pass
 
