@@ -36,7 +36,7 @@ async def RAUSHAN():
     header = Table(show_header=True, header_style="bold green")
     header.add_column(LOG_TEXT)
     LOG.print(header)
-    LOG.print(f"[bold cyan]❖ ᴘᴏᴡᴇʀᴇᴅ ʙʏ :- @PurviBots ✅")
+    LOG.print(f"[bold cyan]❖ ᴘᴏᴡᴇʀᴇᴅ ʙʏ :- @Isha_bots ✅")
     LOG.print("[bold yellow]❖ ʏᴏᴜʀ ʙᴏᴛ sᴛᴀʀᴛᴇᴅ....🤞 ɪғ ʏᴏᴜ ᴀʀᴇ ɴᴏᴛ ɢɪᴠᴇ ᴍᴇ ᴄʀᴇᴅɪᴛ sᴏ ʏᴏᴜ ᴀʀᴇ ʙɪɢɢᴇsᴛ ᴍᴏᴛʜᴇʀ ғ*ᴄᴋᴇʀ.🥵")
     await app.start()    
     
